@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+</head>
+<body>
+    <h1>Movie Recommender</h1>
+    <form action="/recommendations" method="post">
+        <label for="input_id">Enter Movie ID or User ID:</label>
+        <input type="text" id="input_id" name="input_id" required>
+        <br>
+        <label for="similarity_measure">Select Similarity Measure:</label>
+        <select id="similarity_measure" name="similarity_measure">
+            <option value="jaccard">Jaccard</option>
+            <option value="dice">Dice</option>
+            <option value="cosine">Cosine</option>
+            <option value="pearson">Pearson</option>
+        </select>
+        <br>
+        <label for="algorithm">Select Algorithm:</label>
+        <select id="algorithm" name="algorithm">
+            <option value="user_user">User-User</option>
+            <option value="item_item">Item-Item</option>
+            <option value="tag">Tag</option>
+            <option value="hybrid">Hybrid</option>
+        </select>
+        <br>
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+</html>

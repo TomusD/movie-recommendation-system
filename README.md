@@ -1,44 +1,67 @@
-# movie-recommendation-system
-MSc/movie recommendation system using different algorithms
+## Movie Recommendation System
 
-This project is a movie recommendation system implemented in Python using the Flask framework. 
-The system uses collaborative filtering techniques, more specifically user-user, item-item, and tag-based recommendations algorithms. 
-Additionally, I have added a hybrid recommendation that combines these three methods.
+This project is a movie recommendation system built in Python. It uses the **Flask framework** to provide a simple web interface for generating recommendations.
 
-Run from the Terminal where you have saved the file.: "python Main.py"
+All recommendation algorithms and similarity metrics are implemented manually, without relying on external machine learning libraries or databases.
 
-Example :
+### Features
 
-  F:\py projects\Τριανταφύλλου_Θανάσης_M111_>python Main.py
+The system implements several recommendation algorithms and similarity metrics.
 
+**Algorithms Implemented:**
 
+  * **User-User Collaborative Filtering** (`algorithm=user`)
+  * **Item-Item Collaborative Filtering** (`algorithm=item`)
+  * **Tag-Based Recommendation** (`algorithm=tag`)
+  * **Hybrid Recommendation:** A custom combination of the three algorithms above.
 
-After 7-10 minutes you will will see this message : 
+**Similarity Metrics Supported:**
 
-	* Serving Flask app 'Main'
-	* Debug mode: on
-	WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-	* Running on http://127.0.0.1:5000
-	Press CTRL+C to quit
-	* Restarting with stat
-	* Debugger is active!
-	* Debugger PIN: 338-800-009
+  * `jaccard`
+  * `dice`
+  * `cosine`
+  * `pearson`
 
+-----
 
-Open a web browser and copy/paste the http address (Example from above : http://127.0.0.1:5000)
+### Setup and Installation
 
+1.  **Python:** The project was developed using **Python 3.11.3**.
+2.  **Dependencies:** Install the required Flask framework.
+    ```bash
+    pip install Flask
+    ```
+3.  **Dataset:**
+      * Download the **ml-latest.zip** dataset from the Movielens website.
+      * Fix the path for the data to be found by the application.
 
+-----
 
+### How to Run
 
-Use the recommendation system !
+1.  Navigate to the project's root directory in your terminal.
+2.  Run the main application:
+    ```bash
+    python Main.py
+    ```
+3.  Once preprocessing is complete, the Flask server will start and display the local address it is running on. You will see a message similar to this in your terminal:
+    ```
+    * Running on http://127.0.0.1:5000
+    ```
+4.  Open the specific `http://...` address shown in your terminal output in your web browser to use the system.
 
-Type a user id and from the drop down list choose which algorithm  and which similiarity metric you want.
+-----
 
+### Using the Web Interface
 
-(* When you use tag algorithm the input is a movie id instead of a user id.*)
+1.  Use the dropdown menus to select the desired **Algorithm** and **Similarity Metric**.
+2.  Enter the appropriate ID in the input field and click "Get Recommendations."
 
-(* In hybrid it takes around 30 - 60 seconds for the recommendations to load.*)
- 
-(* The program needs Flask framework for the web UI to run so you may need to install it with this command: "pip install Flask" . *)
-
-(* I used Python 3.11.3 for the project. *)
+> **Input Guide:**
+>
+>   * For **User-User**, **Item-Item**, and **Hybrid** algorithms, the input is a **User ID**.
+>   * For the **Tag** algorithm, the input must be a **Movie ID**.
+>
+> **Performance Note:**
+>
+>   * Please allow **30-60 seconds** for the **Hybrid** algorithm to process and return recommendations.
